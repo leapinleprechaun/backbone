@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/leapinleprechaun/backbone/issues"
   },
-  "homepage": "https://github.com/leapinleprechaun/backbone#readme"
+  "homepage": "https://github.com/leapinleprechaun/backbone#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
