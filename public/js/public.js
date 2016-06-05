@@ -1,19 +1,6 @@
 $(function () {
- // $.get('/blocks', appendToList);
- //
- // function appendToList(blocks){
- //   var  list = [],
- //        content,
- //        block;
- //
- //   for(var i in blocks){
- //     block = blocks[i];
- //     content = '<a href="/blocks/'+block+'">'+block+'</a>';
- //     content += ' <a data-block="'+block+'" href="#">DEL</a>';
- //     list.push($('<li>',{html:content}));
- //   }
- //   $('.block-list').append(list);
- // };
+
+  $('.thankYouBlock').hide();
 
   $('form').on('submit',   function (e) {
     e.preventDefault();
@@ -27,8 +14,23 @@ $(function () {
       data: data
     }).then(function (userData) {
       form.trigger('reset');
+      updateBlock(form);
     });
   });
 
+  /* Ui work on submission */
+
+  var updateBlock = function (form) {
+    form.hide();
+    form.next('div').fadeIn();
+  };
+
+  $('.newAddition').on('click', function(e){
+    e.preventDefault();
+    var form  = $(e.currentTarget).parent().prev('form');
+    var formType = form.data('type');
+    form.next('.thankYouBlock').hide();
+    $('form[data-type="'+formType+'"]').fadeIn();
+  })
 
 });

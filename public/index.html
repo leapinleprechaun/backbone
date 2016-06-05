@@ -1,30 +1,60 @@
 <!doctype html>
 <head>
   <meta charset="utf-8">
-   <title>Testing page</title>
+   <title>Always learning...</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.css" charset="utf-8"/>
+  <style>
+  .thankYouBlock{padding:20px}
+  </style>
  </head>
   <body>
-    <h1>Testing</h1>
-    <form data-type="users">
-      <legend>New user</legend>
-      <input type="text" name="name" placeholder="Name"/> <br/>
-      <input type="number" name="age"  placeholder="Age"/> <br/>
-      <input type="text" name="location" placeholder="Location"/> <br/>
-      <select name="areasOfInterest" placeholder="Location" multiple>
-        <option value="sports">Sports</option>
-        <option value="motivation">Motivation</option>
-        <option value="love">Love</option>
-        <option value="life">Life</option>
-      </select>
-      <input type="submit"/>
-    </form>
-    <form data-type="quotes">
-      <legend>New user</legend>
-      <input type="text" name="content" placeholder="Quote"/> <br/>
-      <input type="text" name="author"  placeholder="Author"/> <br/>
-      <input type="submit"/>
-    </form>
-    <ul class="block-list"></ul>
+
+    <div class="top-bar" id="realEstateMenu">
+    <div class="top-bar-left">
+    <ul class="menu" data-responsive-menu="accordion">
+      <li class="menu-text">Always learning..</li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="quotes">Quotes</a></li>
+    </ul>
+    </div>
+    </div>
+
+    <div class="row">
+      <br/>
+      <div class="medium-6 large-6 columns">
+        <form data-type="users">
+          <legend>Add a new user</legend>
+          <input type="text" name="name" placeholder="Name"/> <br/>
+          <input type="number" name="age"  placeholder="Age"/> <br/>
+          <input type="text" name="location" placeholder="Location"/> <br/>
+          <select name="areasOfInterest" placeholder="Location" multiple>
+            <option value="sports">Sports</option>
+            <option value="motivation">Motivation</option>
+            <option value="love">Love</option>
+            <option value="life">Life</option>
+          </select>
+          <input class="button" type="submit"/>
+        </form>
+        <div class="thankYouBlock">
+          <p>Thank you for your entry</p>
+          <button type="button" name="button" class="newAddition button" data-form="users">Add another</button>
+        </div>
+      </div>
+
+      <div class="medium-6 large-6 columns">
+        <form data-type="quotes">
+          <legend>Add a new quote</legend>
+          <input type="text" name="content" placeholder="Quote"/> <br/>
+          <input type="text" name="author"  placeholder="Author"/> <br/>
+          <input class="button" type="submit"/>
+        </form>
+        <div class="thankYouBlock">
+          <p>Thank you for your quote</p>
+          <button type="button" name="button" class="newAddition button" data-form="quotes">Add another</button>
+        </div>
+      </div>
+
+
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="js/public.js"></script>
   </body>
