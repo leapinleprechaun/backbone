@@ -14,9 +14,6 @@ if(isDevelopment){
   db = connect.connectToMongoProd();
 }
 
-app.get('/',   function (request,response) {
- response.send('hello world');
-});
 /* Requiring in all js files in the models directory */
 fs.readdirSync(__dirname + '/models' ).forEach(function(filename){
     if(~filename.indexOf('.js')){
@@ -24,6 +21,15 @@ fs.readdirSync(__dirname + '/models' ).forEach(function(filename){
     }
 })
 
+/* Requiring and mounting routes */
+var defaultRoute = require('./routes/default'); //require the route
+app.use('/',defaultRoute); //mount the route
+
+var users = require('./routes/users');
+app.use('/users',users);
+
+var quotes = require('./routes/quotes');
+app.use('/quotes',quotes);
 
 app.listen(3000, function(){
     console.log('listening on port 3000');
