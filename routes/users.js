@@ -1,23 +1,25 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var User = require('../models/user'); //bring in the user model
+var express = require('express'),
+    router = express.Router(),
+    mongoose = require('mongoose'),
+    User = require('../models/user'), //bring in the user model
+    bodyParser = require('body-parser'), //needed to get form data in correctly
+    parseUrlencoded = bodyParser.urlencoded({extended:false}), //return value is a middleware function
+    getUsers,
+    postUser,
+    deleteUser;
 
-var bodyParser = require('body-parser'); //needed to get form data in correctly
-var parseUrlencoded = bodyParser.urlencoded({extended:false}); //return value is a middleware function
+/* Each method out on its own first , for legibility. Route list at the end */
+getUsers = function (request,response) {
+ mongoose.model('users').find(function(err, users){
+   if(err){
+     response.send(500, 'There was an error - tough luck.');
+   } else {
+     response.json(users);
+   }
+ });
+}
 
-router.route('/') //this already runs off /user from where it was mounted
-.get(function (request,response) {
-  mongoose.model('users').find(function(err, users){
-    if(err){
-      response.send(500, 'There was an error - tough luck.');
-    } else {
-      response.json(users);
-    }
-  });
-
-})
-.post(parseUrlencoded,function(request,response){
+postUser = function(request,response){
   var user = new User({
     name: request.body.name,
     age: request.body.age,
@@ -33,7 +35,19 @@ router.route('/') //this already runs off /user from where it was mounted
     }
   });
 
-});
+};
+
+deleteUser = function (request,response) {
+  User.remove({_id:request.body.id}).exec();
+};
+
+
+/* Actual route calls & middleware calls */
+
+router.route('/') //this already runs off /user from where it was mounted
+.get(getUsers)
+.post(parseUrlencoded,postUser)
+.delete(parseUrlencoded,deleteUser);
 
 
 module.exports = router;
