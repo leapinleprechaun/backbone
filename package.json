@@ -1,22 +1,23 @@
 {
-  "name": "backbone",
+  "name": "ExpressMongoose",
   "version": "1.0.0",
-  "description": "New backbone project",
+  "description": "Express setup for creating json data",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leapinleprechaun/backbone.git"
+    "url": "git+https://github.com/leapinleprechaun/express-mongoose"
   },
   "author": "Gillian McAuliffe",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/leapinleprechaun/backbone/issues"
+    "url": "https://github.com/leapinleprechaun/express-mongoose/issues"
   },
-  "homepage": "https://github.com/leapinleprechaun/backbone#readme",
+  "homepage": "https://github.com/leapinleprechaun/express-mongoose/#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "mongoose": "^4.4.19"
   }
 }
