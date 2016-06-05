@@ -6,4 +6,5 @@ var quoteSchema = new Schema({
   author: String
 });
 
-mongoose.model('quote', quoteSchema);
+var quoteModel = mongoose.model('quotes', quoteSchema);
+module.exports = quoteModel;

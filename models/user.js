@@ -8,4 +8,6 @@ var userSchema = new Schema({
   areasOfInterest: [String]
 });
 
-mongoose.model('user', userSchema);
+var userModel = mongoose.model('users', userSchema);
+
+module.exports = userModel;
