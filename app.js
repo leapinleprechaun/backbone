@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var connect = require('./connect'); //connection details stored seperately
 var fs = require('fs'); //files system library
 
+
+
 /* Flip a switch for dev or production */
 var isDevelopment = true;
 var db = isDevelopment ? connect.connectToMongoDev() : connect.connectToMongoProd();
@@ -16,9 +18,7 @@ fs.readdirSync(__dirname + '/models' ).forEach(function(filename){
     }
 })
 
-/* Requiring and mounting routes */
-var defaultRoute = require('./routes/default'); //require the route
-app.use('/',defaultRoute); //mount the route
+app.use(express.static('public'));
 
 var users = require('./routes/users');
 app.use('/users',users);
