@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+   <title>Testing page</title>
+ </head>
+  <body>
+    <h1>Testing</h1>
+    <form data-type="users">
+      <legend>New user</legend>
+      <input type="text" name="name" placeholder="Name"/> <br/>
+      <input type="number" name="age"  placeholder="Age"/> <br/>
+      <input type="text" name="location" placeholder="Location"/> <br/>
+      <select name="areasOfInterest" placeholder="Location" multiple>
+        <option value="sports">Sports</option>
+        <option value="motivation">Motivation</option>
+        <option value="love">Love</option>
+        <option value="life">Life</option>
+      </select>
+      <input type="submit"/>
+    </form>
+    <form data-type="quotes">
+      <legend>New user</legend>
+      <input type="text" name="content" placeholder="Quote"/> <br/>
+      <input type="text" name="author"  placeholder="Author"/> <br/>
+      <input type="submit"/>
+    </form>
+    <ul class="block-list"></ul>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/public.js"></script>
+  </body>
+</html>
